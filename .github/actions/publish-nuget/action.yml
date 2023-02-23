@@ -62,7 +62,7 @@ runs:
 
         if ($version -eq 'USE_GITHUB_REF_NAME') {
             $version = $Env:GITHUB_REF_NAME.Trim().TrimStart("v")
-            if (!($version -match '^\d+\.\d+\.\d+((-[a-z]{2,}\.\d+)|(\d+-alpha\.\d+\.[a-z]{2,}-\d+))?$'))) {
+            if (!($version -match '^\d+\.\d+\.\d+((-[a-z]{2,}\.\d+)|(\d+-alpha\.\d+\.[a-z]{2,}-\d+))?$')) {
                 Write-Output "::error::`"v$version`" is invalid. The correct format is `"vM.N.O`"  or `"vM.N.O-alpha.X.<issue-code>`" , reg: `"^\d+\.\d+\.\d+((-[a-z]{2,}\.\d+)|(\d+-alpha\.\d+\.[a-z]{2,}-\d+))?$`"  ."
                 exit 1
             }
